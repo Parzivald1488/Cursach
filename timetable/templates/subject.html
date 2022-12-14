@@ -1,0 +1,41 @@
+{% extends 'base-options.html' %}
+{% block title %} Предметы {% endblock %}
+
+
+{% block subject-active %}
+    active
+{% endblock subject-active %}
+
+{% block page %}
+<div class="d-grid gap-2 d-md-flex">
+    <a class="btn btn-success" href="{% url 'subject-new' %}">Добавить предмет</a>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" colspan="1">#</th>
+                <th scope="col" colspan="1">Название предмета</th>
+                <th scope="col" colspan="1"></th>
+                <th scope="col" colspan="1"><button class="btn btn-danger" type="submit">Удалить предметы</button></th>
+            </tr>   
+
+        </thead>
+
+        <tbody>
+            {% for te in subjects %}
+            <tr>
+                <td scope="row"><input type="checkbox" name="{{ te.id }}"></td>
+                <td scope="row">{{ te.name }}</td>
+                <td scope="row"><a class="btn btn-success" href="{% url 'subject-update' te.id %}">Редактировать</a></td>
+                <td><a class="btn btn-danger" href="{% url 'subject-delete' te.id %}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+
+{% endblock %}

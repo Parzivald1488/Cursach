@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Форма преподавателя {% endblock %}
+{% block content %}
+    <h1>Форма преподавателя</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            {{ form.surname }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form.name }} 
+        </div>
+        <div class="input-group mb-3">
+            {{ form.patronymic }}
+        </div>
+        <button class="btn btn-success btn-new" type="submit">Применить</button>
+    </form>
+    
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <a class="btn btn-primary btn-new" href="{% url 'teacher' %}">Назад</a>
+
+
+{% endblock %}

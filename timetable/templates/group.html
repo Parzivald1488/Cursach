@@ -1,0 +1,45 @@
+{% extends 'base-options.html' %}
+{% block title %} Группы {% endblock %}
+
+
+{% block group-active %}
+    active
+{% endblock group-active %}
+
+{% block page %}
+<div class="d-grid gap-2 d-md-flex">
+    <a class="btn btn-success" href="{% url 'group-new' %}">Добавить группу</a>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+
+            <tr>
+                <th scope="col" colspan="1">#</th>
+                <th scope="col" colspan="1">Название специальности</th>
+                <th scope="col" colspan="1">Курс</th>
+                <th scope="col" colspan="1">Номер группы</th>
+                <th scope="col" colspan="1"></th>
+                <th scope="col" colspan="1"><button class="btn btn-danger" type="submit">Удалить группы</button></th>
+            </tr>   
+
+        </thead>
+
+        <tbody>
+            {% for te in groups %}
+            <tr>
+                <td scope="row"><input type="checkbox" name="{{ te.id }}"></td>
+                <td scope="row">{{ te.speciality }}</td>
+                <td scope="row">{{ te.course }}</td>
+                <td scope="row">{{ te.number }}</td>
+                <td scope="row"><a class="btn btn-success" href="{% url 'group-update' te.id %}">Редактировать</a></td>
+                <td><a class="btn btn-danger" href="{% url 'group-delete' te.id %}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+{% endblock %}
