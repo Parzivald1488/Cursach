@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+<!-- {% block title %}{% endblock %} -->
+
+{% block content %}
+{% if user.is_authenticated %}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link {% block lesson-active %}{% endblock lesson-active %}" href="{% url 'lesson' %}">Занятия</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% block teacher-active %}{% endblock teacher-active %}" href="{% url 'teacher' %}">Преподаватели</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% block group-active %}{% endblock group-active %}" href="{% url 'group' %}">Группы</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% block subject-active %}{% endblock subject-active %}" href="{% url 'subject' %}">Предметы</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% block speciality-active %}{% endblock speciality-active %}" href="{% url 'speciality' %}">Специальности</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% block time-active %}{% endblock time-active %}" href="{% url 'time' %}">Время</a>
+    </li>
+</ul>
+    <div class="card mt-4">
+        <div class="card-body">
+            {% block page %}{% endblock page %}
+        </div>
+    </div>
+{% else %}
+    <div class="alert alert-danger">Вы не авторизированны!!!</div>
+{% endif %}
+{% endblock %}
