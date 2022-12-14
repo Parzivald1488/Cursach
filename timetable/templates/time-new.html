@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Форма времени {% endblock %}
+{% block content %}
+    <h1>Форма времени занятий</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            {{ form.name }}
+        </div>
+        <p>Время начала</p>
+        <div class="input-group mb-3">
+            {{ form.start }} 
+        </div>
+        <p>Время окончания</p>
+        <div class="input-group mb-3">
+            {{ form.end }}
+        </div>
+        <button class="btn btn-success btn-new" type="submit">Применить</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'time' %}">Назад</a>
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Удалить специальности {% endblock %}
+{% block content %}
+    <h1>Удаление специальности</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">Вы уверены что хотите удалить специальность?</div>
+        <button class="btn btn-success btn-new" type="submit">Удалить специальность</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'speciality' %}">Назад</a>
+{% endblock %}

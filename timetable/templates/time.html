@@ -1,0 +1,44 @@
+{% extends 'base-options.html' %}
+{% block title %} Время {% endblock %}
+
+{% block time-active %}
+    active
+{% endblock time-active %}
+
+{% block page %}
+<div class="d-grid gap-2 d-md-flex">
+    <a class="btn btn-success" href="{% url 'time-new' %}">Добавить время</a>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" colspan="1">#</th>
+                <th scope="col" colspan="1">Название</th>
+                <th scope="col" colspan="1">Время начала</th>
+                <th scope="col" colspan="1">Время окончания</th>
+                <th scope="col" colspan="1"></th>
+                <th scope="col" colspan="1"><button class="btn btn-danger" type="submit">Удалить выделенное время</button></th>
+            </tr>   
+
+        </thead>
+
+        <tbody>
+            {% for te in times %}
+            <tr>
+                <td scope="row"><input type="checkbox" name="{{ te.id }}"></td>
+                <td scope="row">{{ te.name }}</td>
+                <td scope="row">{{ te.start }}</td>
+                <td scope="row">{{ te.end }}</td>
+                <td scope="row"><a class="btn btn-success" href="{% url 'time-update' te.id %}">Редактировать</a></td>
+                <td><a class="btn btn-danger" href="{% url 'time-delete' te.id %}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+
+{% endblock %}

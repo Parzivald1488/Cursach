@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Форма предмета {% endblock %}
+{% block content %}
+    <h1>Форма предмета</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            {{ form.name }}
+        </div>
+        <button class="btn btn-success btn-new" type="submit">Применить</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'subject' %}">Назад</a>
+
+
+{% endblock %}

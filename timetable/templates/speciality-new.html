@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Форма специальности {% endblock %}
+{% block content %}
+    <h1>Форма специальности</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Название специальности</p>
+        <div class="input-group mb-3">
+            {{ form.title }}
+        </div>
+        <p>Аббревиатура специальности</p>
+        <div class="input-group mb-3">
+            {{ form.abbreviation }} 
+        </div>
+        <p>Код специальности</p>
+        <div class="input-group mb-3">
+            {{ form.code }}
+        </div>
+        <button class="btn btn-success btn-new" type="submit">Применить</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'speciality' %}">Назад</a>
+
+
+{% endblock %}
