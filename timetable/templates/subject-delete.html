@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Удалить предмет {% endblock %}
+{% block content %}
+    <h1>Удаление предмет</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">Вы уверены что хотите удалить предмет?</div>
+        <button class="btn btn-success btn-new" type="submit">Удалить предмет</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'subject' %}">Назад</a>
+
+
+{% endblock %}

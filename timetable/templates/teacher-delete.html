@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Удалить преподавателя {% endblock %}
+{% block content %}
+    <h1>Удаление преподавателя</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">Вы уверены что хотите удалить преподавателя?</div>
+        <button class="btn btn-success btn-new" type="submit">Удалить преподавателя</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'teacher' %}">Назад</a>
+
+
+{% endblock %}

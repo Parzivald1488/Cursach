@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Форма занятия {% endblock %}
+{% block content %}
+    <h1>Форма занятия</h1>
+    
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Дата</p>
+        <div class="input-group mb-3">
+            {{ form.data }}
+        </div>
+        <p>Предмет</p>
+        <div class="input-group mb-3">
+            {{ form.subject }} 
+        </div>
+        <p>Преподаватель</p>
+        <div class="input-group mb-3">
+            {{ form.teacher }}
+        </div>
+        <p>Группа</p>
+        <div class="input-group mb-3">
+            {{ form.group }}
+        </div>
+        <p>Время проведения занятия</p>
+        <div class="input-group mb-3">
+            {{ form.time }}
+        </div>
+        <p>Кабинет</p>
+        <div class="input-group mb-3">
+            {{ form.cabinet }}
+        </div>
+        <button class="btn btn-success btn-new" type="submit">Применить</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'lesson' %}">Назад</a>
+
+
+{% endblock %}

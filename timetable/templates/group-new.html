@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Форма группы {% endblock %}
+{% block content %}
+    <h1>Форма группы</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            {{ form.speciality }} 
+        </div>
+        <p>Курс группы</p>
+        <div class="input-group mb-3">
+            {{ form.course }} 
+        </div>
+        <p>Номер группы</p>
+        <div class="input-group mb-3">
+            {{ form.number }}
+        </div>
+        <button class="btn btn-success  btn-new" type="submit">Применить</button>
+    </form>
+    <a class="btn btn-primary  btn-new" href="{% url 'group' %}">Назад</a>
+
+
+{% endblock %}

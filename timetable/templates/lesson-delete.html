@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Удалить занятие {% endblock %}
+{% block content %}
+    <h1>Удаление занятия</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">Вы уверены что хотите удалить занятие?</div>
+        <button class="btn btn-success btn-new" type="submit">Удалить занятие</button>
+    </form>
+    <a class="btn btn-primary btn-new" href="{% url 'lesson' %}">Назад</a>
+
+
+{% endblock %}

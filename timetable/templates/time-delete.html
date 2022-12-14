@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Удалить время {% endblock %}
+{% block content %}
+    <h1>Удаление времени занятия</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">Вы уверены что хотите удалить время  проведения занятия?</div>
+        <button class="btn btn-success  btn-new" type="submit">Удалить время</button>
+    </form>
+    <a class="btn btn-primary  btn-new" href="{% url 'time' %}">Назад</a>
+
+
+{% endblock %}

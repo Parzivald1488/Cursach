@@ -1,0 +1,114 @@
+
+.weekbtn {
+    position: relative;
+    padding-right: 30px;
+    text-align: center;
+    width: calc(100% / 3);
+}
+
+.btn-group {
+    width: 100%;
+}
+
+.btn-new {
+    padding: 5px;
+    margin: 5px;
+}
+
+.container {
+    padding-bottom: 10px;
+}
+
+.selections {
+    margin: 10px;
+}
+
+.next-past-btns{
+    padding-bottom: 10px;
+}
+
+.btn-search{
+    width: 100px;
+}
+
+.btn-clear {
+    width: 100px;
+}
+
+.month {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+/* CALENDAR */
+
+.calendar {
+    display: flex;
+}
+
+.calendar__day {
+    width: calc(100% / 7);
+    border: 1px solid #000;
+    border-left: none;
+}
+
+.calendar__day:first-child {
+    border-left: 1px solid #000;
+}
+
+.calendar__header {
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.calendar__date {
+    font-size: 26px;
+}
+
+.calendar__weekday {
+    font-size: 20px;
+}
+
+.lesson {
+    margin: 3px;
+    padding: 2px;
+    background: #6c757d;
+    border-radius: 3px;
+    color: #fff;
+}
+
+/* SETTINGS */
+
+.settings__section {
+    border: 1px solid #000;
+    border-bottom: none;
+    width: 100%;
+
+}
+.settings__section:last-child {
+    border-bottom: 1px solid #000;
+}
+
+.settings__section:first-child {
+    border-bottom: none;
+}
+
+.settings__section__header{
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+.settings__section__body {
+    text-align: left;
+
+
+}
+
+.teachers {
+    margin: 3px;
+    padding: 2px;
+    background: #6c757d;
+    border-radius: 3px;
+    color: #fff;
+}

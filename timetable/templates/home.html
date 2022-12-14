@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Timetable {% endblock %}
+
+{% block content %}
+
+	<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+		<a class="btn weekbtn btn-secondary" href="{% url 'home' %}?{{ pastweek }}" type="button">Предыдущая неделя</a>
+		<a class="btn weekbtn btn-secondary" href="{% url 'home' %}?{{ thisweek }}" type="button">Текущая неделя</a>
+		<a class="btn weekbtn btn-secondary" href="{% url 'home' %}?{{ nextweek }}" type="button">Следующая неделя</a>
+	</div>
+	<div>
+		<div class="form-check-inline mt-3 selections">
+			<form method="POST">
+				{% csrf_token %}
+				{{ form }}
+				<div class="form-check-inline mt-3 selections">
+					<button type="button_submit" class="btn-search btn btn-secondary">Поиск</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	{% if isEmpty %}
+		<div class="alert alert-danger">Выберите преподавателя или группу</div>
+	{% else %}	
+		<div class="month"> {{ month }} </div>
+		<div class="calendar">
+			{% for day in calendar %}
+			<div class="calendar__day">
+				<div class="calendar__header">
+					<div class="calendar__weekday">{{day.name}}</div>
+					<div class="calendar__date">{{day.data.day}}</div>
+				</div>
+				<div class="calendar__body">
+					{% for lesson in day.lessons %}
+					<div class="calendar__lesson lesson">
+						<div class="lesson__time">
+							{{ lesson.time }}
+						</div>
+						<div class="lesson__subject">
+							{{ lesson.subject }}
+						</div>
+						<div class="lesson__group">
+							{{ lesson.group.getName }}
+						</div>
+						<div class="lesson__cabinet">
+							{{ lesson.cabinet }} каб.
+						</div>
+						<div class="lesson__teacher">
+							{{ lesson.teacher }}
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+		
+
+{% endblock %}
+
